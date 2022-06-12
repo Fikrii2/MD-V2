@@ -53,6 +53,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   'advanced': '*ADVANCED*',
   'absen': '*MENU ABSEN*',
   'anime': '*MENU ANIME*',
+  'vn': '*MENU VN IMUT*',
   'nsfw': `NSFW ${global.opts['nsfw'] ? '' : '(Dinonaktifkan)'}`,
   'sticker': '*MENU CONVERT*',
   'downloader': '*MENU DOWNLOADER*',
@@ -101,7 +102,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   'fun': '*MENU FUN*',
   }
  if (teks == 'vn') tags = {
-    'vn': 'Vn Imuet'
+    'vn': '*MENU Vn Imuet*',
   }
   if (teks == 'game') tags = {
   'game': '*MENU GAME*',
@@ -270,7 +271,7 @@ let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(
                   "description": "Menampilkan Menu Anime",
                   "rowId": `${_p}? anime`
                 }, {
-                  "title": "|🔞| NSFW",
+                  "title": "☰ NSFW MENU",
                   "description": "Menu Bokep",
                   "rowId": ".? nsfw"
                 }, { 
@@ -290,7 +291,7 @@ let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(
                   "description": "Menampilkan Menu Fun",
                   "rowId": `${_p}? fun`
                 }, {
-                  "title": "😣『 Vn Imuet 』",
+                  "title": "☰ VN IMUET MENU",
                   "description": "Mendengarkan Vn Yang Sangat Imuet",
                   "rowId": ".? vn"                                                      
                 }, {
@@ -430,23 +431,16 @@ let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(
            jpegThumbnail: fs.readFileSync('./src/welcome.jpg') },
            hydratedFooterText: wm,
            hydratedButtons: [{
-            urlButton: {
-               displayText: 'MY GROUP',
-               url: 'https://chat.whatsapp.com/KpS9eHNALBs3mXXJGtzuZE'
-             }
-
-           },
-             {
               quickReplyButton: {
-               displayText: 'Owner',
+               displayText: 'Pemilik Bot',
                id: '.owner',
              }
 
            },
            {
              quickReplyButton: {
-               displayText: 'Profile',
-               id: '.profile',
+               displayText: 'Donasi',
+               id: '.donasi',
              }
            }]
          }
