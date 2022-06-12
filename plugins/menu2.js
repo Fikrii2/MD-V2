@@ -7,6 +7,7 @@ let tags = {
   'advanced': '*ADVANCED*',
   'rpg': '*MENU RPG*',
   'anime': '*MENU ANIME*',
+  'vn': '*VN MENU*',
   'sticker': '*MENU CONVERT*',
   'downloader': '*MENU DOWNLOADER*',
   'xp': '*MENU EXP*',
@@ -161,22 +162,15 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
            hydratedFooterText: `🅛=limit 🅟=premium`,
            hydratedButtons: [{
              urlButton: {
-               displayText: '📍Instagram',
-               url: instagram
-             }
-
-           },
-             {
-             urlButton: {
                displayText: 'Owner',
-               PhoneNumber: 'https://bit.ly/3FWls1N'
+               id: 'owner'
              }
 
            },
            {
              quickReplyButton: {
-               displayText: 'Profile',
-               id: '.profile',
+               displayText: 'Donasi',
+               id: '.donasi',
              }
            }]
          }
