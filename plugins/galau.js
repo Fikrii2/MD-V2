@@ -18,13 +18,6 @@ ${pickRandom(global.galau)}
            jpegThumbnail: fs.readFileSync('./media/quotes.jpg') }, 
            hydratedFooterText: wm,
            hydratedButtons: [{
-             urlButton: {
-               displayText: '📍instagram',
-               url: instagram
-             }
-
-           },
-               {
              quickReplyButton: {
                displayText: 'Galau',
                id: '.galau',
