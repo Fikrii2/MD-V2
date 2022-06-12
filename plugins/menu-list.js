@@ -53,7 +53,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   'advanced': '*ADVANCED*',
   'absen': '*MENU ABSEN*',
   'anime': '*MENU ANIME*',
-  'vn': '*MENU VN IMUT*',
+  'vn': '*VN IMUT*',
   'nsfw': `NSFW ${global.opts['nsfw'] ? '' : '(Dinonaktifkan)'}`,
   'sticker': '*MENU CONVERT*',
   'downloader': '*MENU DOWNLOADER*',
@@ -102,7 +102,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   'fun': '*MENU FUN*',
   }
  if (teks == 'vn') tags = {
-    'vn': '*MENU Vn Imuet*',
+    'vn': 'Vn Imuet',
   }
   if (teks == 'game') tags = {
   'game': '*MENU GAME*',
@@ -293,7 +293,7 @@ let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(
                 }, {
                   "title": "☰ VN IMUET MENU",
                   "description": "Mendengarkan Vn Yang Sangat Imuet",
-                  "rowId": ".? vn"                                                      
+                  "rowId": `${_p}? vn`                                                     
                 }, {
                   "title": "☰ GAME MENU",
                   "description": "Menampilkan Menu Game",
