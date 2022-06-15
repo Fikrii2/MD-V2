@@ -1,7 +1,5 @@
 const simple = require('./lib/simple')
 const util = require('util')
-let fs = require('fs')
-let fetch = require('node-fetch')
 
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(resolve, ms))
