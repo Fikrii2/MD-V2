@@ -16,14 +16,9 @@ module.exports = {
         if (!m) return
         console.log(JSON.stringify(m, null, 4))
         try {
-        simple.smsg(this, m)
-        switch (m.mtype) {
-        case MessageType.image:
-        case MessageType.video:
-        case MessageType.audio:
-          if (!m.key.fromMe) await delay(1000)
-          if (!m.msg.url) await this.updateMediaMessage(m)
-          break
+            m = simple.smsg(this, m) || m
+            if (!m) return
+            // console.log(m)
             m.exp = 0
             m.limit = false
             try {
