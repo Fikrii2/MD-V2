@@ -1,5 +1,7 @@
 const simple = require('./lib/simple')
 const util = require('util')
+let fs = require('fs')
+let fetch = require('node-fetch')
 
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(resolve, ms))
@@ -16,9 +18,14 @@ module.exports = {
         if (!m) return
         console.log(JSON.stringify(m, null, 4))
         try {
-            m = simple.smsg(this, m) || m
-            if (!m) return
-            // console.log(m)
+        simple.smsg(this, m)
+        switch (m.mtype) {
+        case MessageType.image:
+        case MessageType.video:
+        case MessageType.audio:
+          if (!m.key.fromMe) await delay(1000)
+          if (!m.msg.url) await this.updateMediaMessage(m)
+          break
             m.exp = 0
             m.limit = false
             try {
